@@ -7,3 +7,10 @@ services:
     command: java -jar /app/app.jar
     ports:
       - "8080:8080"
+
+  prometheus:
+    image: prom/prometheus:v2.37.6
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"

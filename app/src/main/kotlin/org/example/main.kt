@@ -35,6 +35,6 @@ fun main() {
     println("Starting app")
 
     app
-        .asServer(ApacheServer(port = 8080))
+        .asServer(ApacheServer(port = 8080, canonicalHostname = "app"))
         .start()
 }
