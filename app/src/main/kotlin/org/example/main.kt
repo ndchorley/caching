@@ -11,8 +11,13 @@ import org.http4k.server.asServer
 fun main() {
     val app =
         routes(
-            "/" bind Method.GET to { _ -> Response(Status.OK).body("Hello") }
+            "/" bind Method.GET to { _ ->
+                println("Received request to /")
+                Response(Status.OK).body("Hello")
+            }
         )
+
+    println("Starting app")
 
     app
         .asServer(ApacheServer(port = 8080))

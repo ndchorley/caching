@@ -1,0 +1,9 @@
+version: "3.7"
+services:
+  app:
+    image: eclipse-temurin:17.0.6_10-jdk
+    volumes:
+      - ./app/build/libs/app-1.0-SNAPSHOT-all.jar:/app/app.jar
+    command: java -jar /app/app.jar
+    ports:
+      - "8080:8080"
