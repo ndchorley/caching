@@ -15,6 +15,8 @@ dependencies {
     implementation("org.http4k:http4k-core")
     implementation("org.http4k:http4k-server-apache")
     implementation("org.http4k:http4k-client-apache")
+    implementation("org.http4k:http4k-metrics-micrometer")
+    implementation("io.micrometer:micrometer-registry-prometheus:1.10.4")
     testImplementation(kotlin("test"))
 }
 
