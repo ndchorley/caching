@@ -12,14 +12,12 @@ import org.http4k.server.asServer
 
 fun main() {
     val metricsRegistry = PrometheusMeterRegistry(PrometheusConfig.DEFAULT)
+    val serveMetrics = metricsRegistry.createHandler()
 
     val routes =
         routes(
             "/foo" bind Method.GET to ::handle,
-
-            "/metrics" bind Method.GET to { _ ->
-                Response(Status.OK).body(metricsRegistry.scrape())
-            }
+            "/metrics" bind Method.GET to serveMetrics
         )
 
     val app =
