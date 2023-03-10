@@ -17,5 +17,7 @@ services:
 
   varnish:
     image: varnish:7.1.2
+    volumes:
+      - ./cache/default.vcl:/etc/varnish/default.vcl
     ports:
       - "8082:80"
