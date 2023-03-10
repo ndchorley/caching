@@ -16,7 +16,7 @@ services:
       - "9090:9090"
 
   varnish:
-    image: varnish:7.1.2
+    image: varnish:7.2.1
     volumes:
       - ./cache/default.vcl:/etc/varnish/default.vcl
     ports:
