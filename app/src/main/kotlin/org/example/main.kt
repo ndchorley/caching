@@ -18,8 +18,15 @@ fun main() {
 
     val routes =
         routes(
-            "/foo" bind Method.GET to { _ ->
-                Response(Status.OK).body("Hello")
+            "/foo" bind Method.GET to { request ->
+                val response = Response(Status.OK).body("Hello")
+
+                when (request.query("set-cache-headers")) {
+                    null -> response
+                    else -> {
+                        response.header("cache-control", "max-age=300")
+                    }
+                }
             },
 
             "/metrics" bind Method.GET to { _ ->
