@@ -14,3 +14,8 @@ services:
       - ./metrics/prometheus.yml:/etc/prometheus/prometheus.yml
     ports:
       - "9090:9090"
+
+  varnish:
+    image: varnish:7.1.2
+    ports:
+      - "8082:80"
